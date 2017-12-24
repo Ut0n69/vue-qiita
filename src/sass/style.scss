@@ -1,0 +1,345 @@
+$base: #ECF0F1;
+$main: #33CCCC;
+$accent: #000;
+$title: #fff;
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background: $base;
+}
+
+#app {
+  color: $accent;
+}
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: $main;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.4);
+  & header {
+    color: $title;
+  }
+  & p {
+    position: absolute;
+    font-size: 25px;
+    top: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.app-hbg-menu {
+  background: $main;
+  z-index: 10;
+  position: fixed;
+  bottom: 15px;
+  right: 10px;
+  width: 53px;
+  height: 40px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  & .hbg {
+    position: relative;
+    top: 14px;
+    left: 13px;
+    width: 40px;
+    height: 30px;
+    & span {
+      position: absolute;
+      left: 0;
+      width: 26px;
+      height: 3px;
+      background: {
+        color: #fff;
+        radius: 4px;
+      }
+    }
+    & .hbg-1 {
+      top: -6px;
+    }
+    & .hbg-2 {
+      top: 3px;
+    }
+    & .hbg-3 {
+      top: 12px;
+    }
+  }
+  & .isActive {
+    position: relative;
+    top: 5px;
+    left: 12px;
+    width: 40px;
+    height: 30px;
+    & span {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 26px;
+      height: 3px;
+      background: {
+        color: #fff;
+        radius: 4px;
+      }
+    }
+    & .hbg-1 {
+      top: -2;
+      -webkit-transform: translateY(13px) rotate(-45deg);
+      transform: translateY(13px) rotate(-45deg);
+    }
+    & .hbg-2 {
+      opacity: 0;
+    }
+    & .hbg-3 {
+      top: 27px;
+      -webkit-transform: translateY(-14px) rotate(45deg);
+      transform: translateY(-14px) rotate(45deg);
+    }
+  }
+}
+
+.blur {
+  position: fixed;
+  top: 40px;
+  width: 100%;
+  height: calc(100% - 40px);
+  background: rgba(0, 0, 0, 0.351);
+}
+
+.appMenu {
+  position: fixed;
+  margin-top: 40px;
+  left: 0;
+  width: 298px;
+  border-right: 2px solid #000;
+  overflow: auto;
+  transition-duration: .5s;
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #fff;
+  }
+  & li {
+    cursor: pointer;
+    margin: 0 10px 0 10px;
+    border-bottom: 1px solid #000;
+    font-size: 20px;
+    transition: .5s;
+  }
+  & li:hover {
+    color: $main;
+    margin-left: 20px;
+  }
+}
+
+.active {
+  transition-duration: .5s;
+  position: fixed;
+  margin-top: 40px;
+  top: 0;
+  left: 0;
+  width: 298px;
+  height: calc(100% - 40px);
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: $base;
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #fff;
+  }
+  & li {
+    cursor: pointer;
+    margin: 0 10px 0 10px;
+    border-bottom: 1px solid #000;
+    font-size: 20px;
+    transition: .5s;
+  }
+  & li:hover {
+    color: $main;
+    margin-left: 20px;
+  }
+}
+
+.app-contents {
+  margin-top: 40px;
+  text-align: center;
+  width: 100%;
+  overflow: auto;
+  & .article {
+    background: #fff;
+    & .data-tags {
+      display: inline-block;
+    }
+    & .data-date {
+      display: inline-block;
+    }
+  }
+  & p {
+    margin: 0;
+  }
+  & ul {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+  }
+  & li {
+    display: inline-block;
+  }
+}
+
+.data-tags {
+  & li {
+    background: $main;
+    padding: 0 5px;
+    margin: 0 2px;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s;
+}
+
+.fade-enter,
+.fade-leave-to
+/* .fade-leave-active below version 2.1.8 */
+
+{
+  opacity: 0;
+}
+
+$breakpoint-sp: 0px;
+$breakpoint-pc: 900px;
+@media screen and (min-width: $breakpoint-sp) {
+  .app-header {
+    & p {
+      left: 30px;
+    }
+  }
+  .app-hbg-menu {
+    display: block;
+  }
+  .appMenu {
+    transition-duration: .3s;
+    position: fixed;
+    margin-top: 40px;
+    z-index: 10;
+    top: 0;
+    left: -300px;
+    width: 298px;
+    height: calc(100% - 40px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: $base;
+  }
+  .app-contents {
+    position: static;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 40px);
+  }
+  .article {
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    & .data-tags {
+      display: inline-block;
+      font-size: 2vw;
+    }
+    & .data-date {
+      display: inline-block;
+      font-size: 2vw;
+    }
+    & p {
+      font-size: 3vw;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-pc) {
+  .app-header {
+    & p {
+      left: 100px;
+    }
+  }
+  .app-hbg-menu {
+    display: none;
+  }
+  .appMenu {
+    display: block;
+    left: 0;
+    height: calc(100% - 40px);
+  }
+  .app-contents {
+    position: fixed;
+    left: 300px;
+    height: calc(100% - 40px);
+    width: calc(100% - 300px);
+  }
+  .article {
+    padding: 30px;
+    margin: 30px;
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.4);
+    & .data-tags {
+      display: inline-block;
+      font-size: 1vw;
+    }
+    & .data-date {
+      margin-left: 15px;
+      display: inline-block;
+      font-size: 12px;
+    }
+    & p {
+      font-size: 22px;
+    }
+  }
+}
+
+
+/* 以下ライブラリ */
+
+$btn-width: 80%;
+$btn-height: 45px;
+$btn-font-size: 18px;
+.btn {
+  cursor: pointer;
+  font-size: $btn-font-size;
+  width: $btn-width;
+  height: $btn-height;
+  background: $main;
+  color: $title;
+  transition-duration: 0.3s;
+  outline: none;
+  border-radius: 0;
+  border: 0;
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.4);
+}
+
+.btn:hover {
+  box-shadow: 0 10px 20px 0px rgba(0, 0, 0, 0.4);
+}
+
+a:link {
+  color: $accent;
+}
+
+a:visited {
+  color: $accent;
+}
+
+a:hover {
+  color: $accent;
+}
+
+a:active {
+  color: $accent;
+}

@@ -1,0 +1,17 @@
+<% include view/_header %>
+
+  <body>
+    <div id="app">
+      <app-header></app-header>
+      <app-hbg-menu v-on:click.native="btn()"></app-hbg-menu>
+      <blur v-on:click.native="hide()" v-bind:class="classBlur"></blur>
+      <app-menu v-bind:class="classObj"></app-menu>
+      <transition v-on:enter="enter" name="fade">
+        <router-view class="app-contents"></router-view>   
+      </transition>
+    </div>
+
+    <script src="js/components.js"></script> 
+    <script src="js/main.js"></script>
+  </body>
+  </html>

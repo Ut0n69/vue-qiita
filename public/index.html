@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	
+	<title>Qi-tan</title>
+	
+	
+	<link rel="shortcut icon" href="pict/favicon.png">
+	<link rel="stylesheet" href="css/style.css">
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+	<script src="js/getData.js"></script>
+</head>
+
+  <body>
+    <div id="app">
+      <app-header></app-header>
+      <app-hbg-menu v-on:click.native="btn()"></app-hbg-menu>
+      <blur v-on:click.native="hide()" v-bind:class="classBlur"></blur>
+      <app-menu v-bind:class="classObj"></app-menu>
+      <transition v-on:enter="enter" name="fade">
+        <router-view class="app-contents"></router-view>   
+      </transition>
+    </div>
+
+    <script src="js/components.js"></script> 
+    <script src="js/main.js"></script>
+  </body>
+  </html>
